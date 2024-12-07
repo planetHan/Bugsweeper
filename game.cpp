@@ -1,3 +1,5 @@
+#include <game.hpp>
+
 public class Game{
 
     Display display;
@@ -23,24 +25,12 @@ public class Game{
 
 
     void CreateBoard(){
-
-    }
-
-
-    void PlaceMines(){
-
-
-        int placedMines = 0;
-        int totalCells = WIDTH * HEIGHT;
-
-
-        while placedMines < totalMines{
-            if (rand() % totalCells){
-                placedMines++;
+        for (int i = 0; i < HEIGHT; i++){
+            for (int j = 0; j < WIDTH; j++){
+                Board[i][j] = new Cell;
             }
         }
     }
-
 
 
 
@@ -60,7 +50,7 @@ public class Game{
                 
                 break;
             case 1:
-                targetCell.Flag()
+                targetCell.Flag();
                 break;
             default:
         }
@@ -69,6 +59,24 @@ public class Game{
 
 
     private void Open(int x, int y)
+}
+
+void Game::init(int _totalMines):totalMines(_totalMines);
+
+void Game::PlaceMines(){
+
+    int placedMines = 0;
+    int totalCells = WIDTH * HEIGHT;
+
+    while (placedMines < totalMines){ 
+        int coordinate = rand() % totalCells; //랜덤 좌표 설정
+        int x = coordinate % WIDTH;
+        int y = coordinate % WIDTH;
+        if (!Board[y][x].isMine){ //좌표에 지뢰가 없을 경우
+            Board[y][x].isMine = true; //지뢰를 설치.
+            placedMines++;
+        }
+    }
 }
 
 public class Cell{

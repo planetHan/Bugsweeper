@@ -1,4 +1,9 @@
 #include <iostream>
+#include <string>
+
+using namespace std;
+
+void getCommand();
 
 int main(){
     std::cout << "Welcome to Bugsweeper. Please enter desired number of bugs. (10-20)" << std::endl;
@@ -6,20 +11,20 @@ int main(){
     int totalMines;
     //std::cin >> totalMines;
 
-    Game game = new Game(totalMines);
+    Game game = new Game(totalMines); //Create game.
 
 
 
     while (game.openCells == 0){
-        getCommand()
+        getCommand(game);
         if (command = open){
-            PlaceMines()
+            game.PlaceMines();
             break;
         }
     }
 
     while (!Game.IsOver){
-        getCommand()
+        getCommand(game);
     }
 
     
@@ -29,6 +34,9 @@ int main(){
     // end
 }
 
-void getCommand(){
-    
+void getCommand(Game* game){
+    int x, y, command;
+    cout >> "Input cell's row and column and 0 or 1(0 is leftclick, 1 is rightclick)."
+    cin << x << y << command;
+    game.command(x, y, command);
 }
