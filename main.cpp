@@ -1,18 +1,23 @@
+#include <iostream>
+
 int main(){
-    // get mine num
+    std::cout << "Welcome to Bugsweeper. Please enter desired number of bugs. (10-20)" << std::endl;
+    
+    int totalMines;
+    //std::cin >> totalMines;
 
-    Game = new Game(totalMines, x, y);
+    Game game = new Game(totalMines);
 
-    while (openCells == 0){
-        //get command
+    while (game.openCells == 0){
+        getCommand()
         if (command = open){
             PlaceMines()
             break;
         }
     }
 
-    while (Game.IsOver()){
-        //get command
+    while (!Game.IsOver){
+        getCommand()
     }
 
     
@@ -20,4 +25,8 @@ int main(){
     // while get commands
 
     // end
+}
+
+void getCommand(){
+    
 }

@@ -1,5 +1,7 @@
 public class Game{
 
+    public bool isOver;
+
     const int WIDTH = 10;
     const int HEIGHT = 8;
 
