@@ -8,6 +8,10 @@ int main(){
 
     Game game = new Game(totalMines);
 
+    Display display = new Display();
+
+    display.DrawBoard(Game.board);
+
     while (game.openCells == 0){
         getCommand()
         if (command = open){
