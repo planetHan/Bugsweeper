@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdio.h>
-
+#include <game.hpp>
+#include <display.hpp>
 
 void getCommand(int* x, int* y, int* command){
     printf("type x y command");
@@ -8,15 +9,15 @@ void getCommand(int* x, int* y, int* command){
 }
 
 int main(){
-    std::cout << "Welcome to Bugsweeper. Please enter desired number of bugs. (10-20)" << std::endl;
+    cout << "Welcome to Bugsweeper. Please enter desired number of bugs. (10-20)" << endl;
     
     int totalMines;
-    //std::cin >> totalMines;
+    //cin >> totalMines;
 
     Game game = new Game(totalMines); //Create game.
 
     int x, y, c;
-    while (!Game.IsOver){
+    while (!game.IsOver){
         getCommand();
         game.Command(x, y, c);
     }

@@ -6,11 +6,7 @@ using namespace std;
 
 public class Game{
 
-    Display display;
-
-        Display display = new Display();
-
-    display.DrawBoard(Game.board);
+    Display display = new Display();
 
     public bool isOver;
 
@@ -20,19 +16,19 @@ public class Game{
     Cell Board[HEIGHT][WIDTH]; //Board of Cells
     int totalMines = 10;
     int openCells = 0;
+    int totalFlags = 0;
 
 
     init(int);
 
     void CreateBoard();
 
-    void PlaceMines();
+    void PlaceMines(Cell);
 
     void Command(int, int, int);
 
     void Gameover();
 
-    private void Open(int x, int y);
 }
 
 public class Cell{
@@ -44,6 +40,7 @@ public class Cell{
     public bool isFlagged {get; private set;}
     public bool isOpen {get; private set;}
 
-    public bool Open();
-    public void Flag();
+    public bool Open(Cell, Game);
+    public void Flag(Game);
+    private int LookAround();
 }
