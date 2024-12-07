@@ -27,25 +27,15 @@ public class Display{
         }
     }
     void DrawCell(Cell cell){
+        const int CELL_SIZE = 5;
+        const int GRID_GAP = 1;
         
+        int  
+        int cell_y =
 
-        /* allocate image data */
-        
-
-        /* draw a bunch of vertical lines */
-        for (int col = 0; col < WIDTH; col++) {
-            for (int row = 0; row < HEIGHT; row++) {
-                if (HEIGHT - row <= bar_height) {
-                    pixel_pointers[row][col].r = 255; // red
-                    pixel_pointers[row][col].g = 0; // green
-                    pixel_pointers[row][col].b = 0; // blue
-                    pixel_pointers[row][col].a = 255; // alpha (opacity)
-                } else {
-                    pixel_pointers[row][col].r = 0; // red
-                    pixel_pointers[row][col].g = 0; // green
-                    pixel_pointers[row][col].b = 0; // blue
-                    pixel_pointers[row][col].a = 0; // alpha (opacity)
-                }
+        for (int col = cell.x * (CELL_SIZE + GRID_GAP); col < cell.x * (CELL_SIZE + GRID_GAP) + CELL_SIZE; col++) {
+            for (int row = cell.y * (CELL_SIZE + GRID_GAP); row < cell.y * (CELL_SIZE + GRID_GAP) + CELL_SIZE; row++) {
+                pixel_pointers[row][col] = Pixel;
             }
         }
 
