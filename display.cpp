@@ -35,6 +35,7 @@ int main(int argc, char *argv[]) {
 		fprintf(stderr, "could not open out.png\n");
 		return 1;
 	}
+	
 
 	/* initialize png data structures */
 	png_structp png_ptr;
