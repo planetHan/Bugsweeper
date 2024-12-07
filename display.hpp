@@ -11,7 +11,11 @@ public class Display{
 
     public:
     void Print(){
+        /* write image data to disk */
+        png_write_image(png_ptr, (png_byte **)pixel_pointers);
 
+        /* finish writing PNG file */
+        png_write_end(png_ptr, NULL);
     }
 
     void DrawBoard(Board board){
@@ -23,12 +27,7 @@ public class Display{
         }
     }
     void DrawCell(Cell cell){
-        /* begin writing PNG File */
-        png_init_io(png_ptr, f);
-        png_set_IHDR(png_ptr, info_ptr, WIDTH, HEIGHT, COLOR_DEPTH,
-                    PNG_COLOR_TYPE_RGB_ALPHA, PNG_INTERLACE_NONE,
-                    PNG_COMPRESSION_TYPE_DEFAULT, PNG_FILTER_TYPE_DEFAULT);
-        png_write_info(png_ptr, info_ptr);
+        
 
         /* allocate image data */
         
