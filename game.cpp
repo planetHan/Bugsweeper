@@ -1,5 +1,11 @@
 public class Game{
 
+    Display display;
+
+        Display display = new Display();
+
+    display.DrawBoard(Game.board);
+
     public bool isOver;
 
     const int WIDTH = 10;
@@ -58,7 +64,7 @@ public class Game{
                 break;
             default:
         }
-        Display.UpdateCell(x, y);
+        display.DrawCell(x, y);
     }
 
 
@@ -66,6 +72,10 @@ public class Game{
 }
 
 public class Cell{
+
+    int x;
+    int y;
+
     public bool isMine {get; private set;}
     public bool isFlagged {get; private set;}
     public bool isOpen {get; private set;}
