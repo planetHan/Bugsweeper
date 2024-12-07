@@ -46,7 +46,7 @@ public class Game{
                 if (targetCell.isOpen()){
                     return;
                 }
-                targetCell.Open();
+                targetCell.Open(Board);
                 
                 break;
             case 1:
@@ -88,12 +88,31 @@ public class Cell{
     public bool isFlagged {get; private set;}
     public bool isOpen {get; private set;}
 
-    public bool Open(){
+    public bool Open(Cell *Board){
         if (isMine){
             Game.Gameover();
             return;
         }
+        int nearMine = 0; //주변 지뢰 갯수 검사
+        for (int i = y - 1; i <= y + 1; i++){
+            for (int j = x - 1; j <= x + 1; j++){
+                if (Board[i][j].isMine){
+                    nearMine++;
+                }
+            }
+        }
+        Board[y][x].isOpen = !Board[y][x].isOpen;
+        if (nearMine == 0){ //주변 지뢰 갯수 0일 시 주변 칸 열기
+            for (int i = y - 1; i <= y + 1; i++){
+                for (int j = x - 1; j <= x + 1; j++){
+                    if (!Board[i][j].isOpen){
+                        Board[i][j].open();
+                    }
+                }
+            }
+        }
     }
+
     public void Flag(){
         isFlagged = !isFlagged
     }
