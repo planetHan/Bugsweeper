@@ -2,6 +2,8 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
+
 public class Game{
 
     Display display;
@@ -26,34 +28,11 @@ public class Game{
 
     void PlaceMines();
 
+    void Command(int, int, int);
 
+    void Gameover();
 
-
-
-    void Command(int x, int y, int command){
-
-        //if x,y is not valid
-        //todo
-
-        Cell targetCell = Board[y][x]
-        switch command{
-            case 0:
-                if (targetCell.isOpen()){
-                    return;
-                }
-                targetCell.Open();
-                
-                break;
-            case 1:
-                targetCell.Flag();
-                break;
-            default:
-        }
-        display.DrawCell(x, y);
-    }
-
-
-    private void Open(int x, int y)
+    private void Open(int x, int y);
 }
 
 public class Cell{
@@ -65,13 +44,6 @@ public class Cell{
     public bool isFlagged {get; private set;}
     public bool isOpen {get; private set;}
 
-    public bool Open(){
-        if (isMine){
-            Game.Gameover();
-            return;
-        }
-    }
-    public void Flag(){
-        isFlagged = !isFlagged
-    }
+    public bool Open();
+    public void Flag();
 }
