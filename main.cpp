@@ -16,6 +16,7 @@ int main(){
 
 
     while (game.openCells == 0){
+        
         getCommand(game);
         if (command = open){
             game.PlaceMines();
