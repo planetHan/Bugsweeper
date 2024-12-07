@@ -1,9 +1,11 @@
 #include <iostream>
-#include <string>
+#include <stdio.h>
 
-using namespace std;
 
-void getCommand();
+void getCommand(int* x, int* y, int* command){
+    printf("type x y command");
+    scanf("%d %d %d", &x, &y, &c);
+}
 
 int main(){
     std::cout << "Welcome to Bugsweeper. Please enter desired number of bugs. (10-20)" << std::endl;
@@ -13,31 +15,9 @@ int main(){
 
     Game game = new Game(totalMines); //Create game.
 
-
-
-    while (game.openCells == 0){
-        
-        getCommand(game);
-        if (command = open){
-            game.PlaceMines();
-            break;
-        }
-    }
-
+    int x, y, c;
     while (!Game.IsOver){
-        getCommand(game);
+        getCommand();
+        game.Command(x, y, c);
     }
-
-    
-
-    // while get commands
-
-    // end
-}
-
-void getCommand(Game* game){
-    int x, y, command;
-    cout >> "Input cell's row and column and 0 or 1(0 is leftclick, 1 is rightclick)."
-    cin << x << y << command;
-    game.command(x, y, command);
 }

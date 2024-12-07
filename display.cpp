@@ -84,18 +84,8 @@ int main(int argc, char *argv[]) {
 		}
 	}
 
-	/* write image data to disk */
-	png_write_image(png_ptr, (png_byte **)row_pointers);
-
-	/* finish writing PNG file */
+		/* finish writing PNG file */
 	png_write_end(png_ptr, NULL);
-
-	/* clean up PNG-related data structures */
-	png_destroy_write_struct(&png_ptr, &info_ptr);
-
-	/* close the file */
-	fclose(f);
-	f = NULL;
 
 	return 0;
 }
