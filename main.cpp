@@ -16,9 +16,9 @@ int main(){
 
     Game game = new Game(totalMines); //Create game.
 
-    int x, y, c;
+    int x, y, command;
     while (!game.IsOver){
         getCommand();
-        game.Command(x, y, c);
+        game.Command(x, y, command);
     }
 }
