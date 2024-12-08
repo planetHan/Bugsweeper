@@ -7,7 +7,7 @@ Game::Game(int totalMines){
 void Game::CreateBoard(){
     for (int i = 0; i < HEIGHT; i++){
         for (int j = 0; j < WIDTH; j++){
-            Board[i][j] = new Cell;
+            Board[i][j] = new Cell(j, i);
         }
     }
     display.DrawBoard(Game.board);
@@ -61,6 +61,8 @@ void Game::Gameover(){
     isOver = true;
     cout << "You lose" << endl;
 }
+
+Cell::Cell(int _x, int _y):x(_x), y(_y){};
 
 public bool Cell::Open(Cell *Board, Game *game){
     if (isMine){

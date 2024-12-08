@@ -19,7 +19,7 @@ public class Game{
     int totalFlags = 0;
 
 
-    init(int);
+    Game(int);
 
     void CreateBoard();
 
@@ -35,7 +35,8 @@ public class Cell{
 
     int x;
     int y;
-
+    
+    Cell(int, int);
     public bool isMine {get; private set;}
     public bool isFlagged {get; private set;}
     public bool isOpen {get; private set;}
