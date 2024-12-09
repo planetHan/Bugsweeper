@@ -71,7 +71,9 @@ public bool Cell::Open(Cell *Board, Game *game){
     game.openCells++;
     if (LookAround() == 0){ //주변 지뢰 갯수 0일 시 주변 칸 열기
         for (int i = y - 1; i <= y + 1; i++){
+            if (i < 0 || i >= HEIGHT) continue;
             for (int j = x - 1; j <= x + 1; j++){
+                if (j < 0 || j >= WIDTH) continue;
                 if (!Board[i][j].isOpen){
                     Board[i][j].open();
                 }
@@ -83,9 +85,9 @@ public bool Cell::Open(Cell *Board, Game *game){
 private int Cell::LookAround(){
     int nearMine = 0;
     for (int i = y - 1; i <= y + 1; i++){
-        if (i < 0) continue;
+        if (i < 0 || i >= HEIGHT) continue;
         for (int j = x - 1; j <= x + 1; j++){
-            if (j < 0) continue;
+            if (j < 0 || j >= WIDTH) continue;
             if (Board[i][j].isMine){
                 nearMine++;
             }
