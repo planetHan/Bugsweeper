@@ -39,7 +39,7 @@ public class Cell{
     public bool isFlagged {get; private set;}
     public bool isOpen {get; private set;}
 
-    public bool Open(Cell, Game);
-    public void Flag(Game);
+    public bool Open(Cell*, Game*);
+    public void Flag(Game*);
     private int LookAround();
 }

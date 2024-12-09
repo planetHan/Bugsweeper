@@ -38,8 +38,6 @@ void Game::Command(int x, int y, int command){
     display.DrawCell(x, y);
 }
 
-void Game::init(int _totalMines):totalMines(_totalMines);
-
 void Game::PlaceMines(Cell targetCell){
 
     int placedMines = 0;
@@ -67,7 +65,7 @@ Cell::Cell(int _x, int _y):x(_x), y(_y){};
 public bool Cell::Open(Cell *Board, Game *game){
     if (isMine){
         game.Gameover();
-        return;
+        return true;
     }
     isOpen = true;
     game.openCells++;
@@ -85,7 +83,9 @@ public bool Cell::Open(Cell *Board, Game *game){
 private int Cell::LookAround(){
     int nearMine = 0;
     for (int i = y - 1; i <= y + 1; i++){
+        if (i < 0) continue;
         for (int j = x - 1; j <= x + 1; j++){
+            if (j < 0) continue;
             if (Board[i][j].isMine){
                 nearMine++;
             }
