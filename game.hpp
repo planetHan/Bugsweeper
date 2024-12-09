@@ -1,6 +1,5 @@
 //public class Game
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
@@ -17,7 +16,6 @@ public class Game{
     int totalMines = 10;
     int openCells = 0;
     int totalFlags = 0;
-
 
     Game(int);
 
